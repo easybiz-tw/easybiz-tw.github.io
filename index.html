@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <title>EasyBiz 易必思管理系統｜預算編列與電子表單導入服務</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="EasyBiz 由資深業界人士與新銳開發者共同打造，提供中小企業預算編列系統與電子表單系統導入服務，協助企業取代 Excel 與紙本流程，三個月試用評估。">
+<meta name="google-site-verification" content="nFcmn7nCsjuanIeISdI6gGgLWExOcpswe5sbo8j4y8I" />
+<meta name="description" content="EasyBiz 由資深業界人士與新銳開發者共同打造，提供中小企業預算編列系統與電子表單系統導入服務，協助企業取代 Excel 與紙本流程，提供三個月試用評估。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
 
@@ -12,16 +13,16 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --ink:       #0f1923;
-  --deep:      #0d2137;
-  --navy:      #153352;
-  --gold:      #c9983a;
-  --gold-lt:   #f0c96a;
-  --cream:     #f7f4ef;
-  --mist:      #eaf0f6;
-  --slate:     #4a6580;
-  --light:     #ffffff;
-  --r:         18px;
+  --ink: #0f1923;
+  --deep: #0d2137;
+  --navy: #153352;
+  --gold: #c9983a;
+  --gold-lt: #f0c96a;
+  --cream: #f7f4ef;
+  --mist: #eaf0f6;
+  --slate: #4a6580;
+  --light: #ffffff;
+  --r: 18px;
 }
 
 html { scroll-behavior: smooth; }
@@ -34,7 +35,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ── NAV ── */
+/* NAV */
 nav {
   position: sticky;
   top: 0;
@@ -64,7 +65,6 @@ nav {
   font-size: 17px;
   letter-spacing: .5px;
 }
-.logo-sub { color: var(--gold-lt); font-size: 11px; margin-left: 2px; }
 nav ul {
   list-style: none;
   display: flex;
@@ -87,10 +87,10 @@ nav ul a:hover { color: var(--gold-lt); }
   font-weight: 700 !important;
 }
 
-/* ── HERO ── */
+/* HERO */
 .hero {
   background: var(--deep);
-  min-height: 100vh;
+  min-height: 720px;
   display: flex;
   align-items: center;
   position: relative;
@@ -180,6 +180,7 @@ nav ul a:hover { color: var(--gold-lt); }
   line-height: 1.5;
 }
 .hero-origin strong { color: var(--gold-lt); }
+
 .btn {
   display: inline-block;
   background: linear-gradient(135deg, var(--gold), var(--gold-lt));
@@ -203,10 +204,7 @@ nav ul a:hover { color: var(--gold-lt); }
 }
 .btn-outline:hover { border-color: var(--gold-lt); color: var(--gold-lt); box-shadow: none; }
 
-/* hero right card */
-.hero-visual {
-  position: relative;
-}
+.hero-visual { position: relative; }
 .hero-card {
   background: rgba(255,255,255,.07);
   border: 1px solid rgba(255,255,255,.14);
@@ -236,10 +234,10 @@ nav ul a:hover { color: var(--gold-lt); }
 }
 .stat-num {
   font-family: 'Noto Serif TC', serif;
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 900;
   color: var(--gold-lt);
-  line-height: 1;
+  line-height: 1.2;
 }
 .stat-label { font-size: 12px; color: #8aa8c0; margin-top: 4px; }
 .feature-list { list-style: none; }
@@ -275,8 +273,8 @@ nav ul a:hover { color: var(--gold-lt); }
   white-space: nowrap;
 }
 
-/* ── SECTION SHARED ── */
-section { padding: 80px 6%; }
+/* SHARED */
+section { padding: 64px 6%; }
 .container { max-width: 1200px; margin: auto; }
 .sec-eyebrow {
   display: inline-block;
@@ -304,7 +302,7 @@ section { padding: 80px 6%; }
 .text-center { text-align: center; }
 .text-center .sec-sub { margin: 0 auto; }
 
-/* ── STORY SECTION ── */
+/* STORY */
 .story-section { background: #fff; }
 .story-grid {
   display: grid;
@@ -313,13 +311,6 @@ section { padding: 80px 6%; }
   align-items: center;
 }
 .story-img-wrap { position: relative; }
-.story-img {
-  width: 100%;
-  border-radius: 20px;
-  object-fit: cover;
-  height: 400px;
-  display: block;
-}
 .story-img-placeholder {
   width: 100%;
   height: 400px;
@@ -389,7 +380,7 @@ section { padding: 80px 6%; }
   font-weight: 800;
 }
 
-/* ── PAIN POINTS ── */
+/* PAIN POINTS */
 .pain-section { background: var(--cream); }
 .pain-grid {
   display: grid;
@@ -418,7 +409,7 @@ section { padding: 80px 6%; }
 .pain-card h3 { font-size: 17px; font-weight: 700; color: var(--deep); margin-bottom: 8px; }
 .pain-card p { font-size: 14px; color: var(--slate); line-height: 1.7; }
 
-/* ── SYSTEMS ── */
+/* SYSTEMS */
 .systems-section { background: var(--deep); }
 .systems-section .sec-title { color: #fff; }
 .systems-section .sec-sub { color: #8aa8c0; }
@@ -478,7 +469,7 @@ section { padding: 80px 6%; }
   flex-shrink: 0;
 }
 
-/* ── TRIAL ── */
+/* TRIAL */
 .trial-section { background: var(--cream); }
 .trial-box {
   background: linear-gradient(135deg, var(--deep) 0%, var(--navy) 100%);
@@ -553,7 +544,7 @@ section { padding: 80px 6%; }
 .t-info h4 { color: var(--gold-lt); font-size: 15px; font-weight: 700; margin-bottom: 4px; }
 .t-info p { color: #8aa8c0; font-size: 13px; line-height: 1.6; }
 
-/* ── WHO IS IT FOR ── */
+/* WHO */
 .who-section { background: #fff; }
 .who-grid {
   display: grid;
@@ -573,7 +564,7 @@ section { padding: 80px 6%; }
 .who-card h3 { font-size: 17px; font-weight: 700; color: var(--deep); margin-bottom: 8px; }
 .who-card p { font-size: 14px; color: var(--slate); line-height: 1.7; }
 
-/* ── FAQ ── */
+/* FAQ */
 .faq-section { background: var(--cream); }
 .faq-grid {
   display: grid;
@@ -609,7 +600,7 @@ section { padding: 80px 6%; }
 }
 .faq-a { font-size: 14px; color: var(--slate); line-height: 1.7; padding-left: 24px; }
 
-/* ── CONTACT ── */
+/* CONTACT */
 .contact-section { background: var(--deep); }
 .contact-section .sec-title { color: #fff; }
 .contact-section .sec-sub { color: #8aa8c0; }
@@ -662,7 +653,7 @@ textarea { resize: vertical; min-height: 110px; }
   margin-top: 14px;
 }
 
-/* ── FOOTER ── */
+/* FOOTER */
 footer {
   background: #080f18;
   padding: 30px 6%;
@@ -682,15 +673,13 @@ footer {
   font-size: 13px;
   color: #4a6580;
 }
-
-/* ── DIVIDER ── */
 .divider {
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(201,152,58,.4), transparent);
   margin: 0 6%;
 }
 
-/* ── RESPONSIVE ── */
+/* RESPONSIVE */
 @media (max-width: 960px) {
   .hero-grid, .story-grid, .systems-grid, .trial-box { grid-template-columns: 1fr; }
   .pain-grid, .who-grid { grid-template-columns: 1fr 1fr; }
@@ -702,19 +691,20 @@ footer {
 }
 @media (max-width: 600px) {
   .pain-grid, .who-grid { grid-template-columns: 1fr; }
-  section { padding: 56px 5%; }
-  .hero { padding: 100px 5% 60px; }
+  section { padding: 50px 5%; }
+  .hero { padding: 90px 5% 56px; min-height: auto; }
+  .btn-outline { margin-left: 0; margin-top: 12px; }
 }
 </style>
 </head>
+
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="logo-wrap">
     <div class="logo-icon">易</div>
     <div>
-      <div class="logo-text">EasyBiz 易企管理系統</div>
+      <div class="logo-text">EasyBiz 易必思管理系統</div>
     </div>
   </div>
   <ul>
@@ -726,31 +716,31 @@ footer {
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-grid">
     <div>
       <div class="hero-tag">中小企業管理系統導入服務</div>
-      <h1>把三十年的<em>實戰智慧</em><br>化為企業數位升級的力量</h1>
+      <h1>把多年的<em>實戰智慧</em><br>化為企業數位升級的力量</h1>
       <p class="hero-lead">
         Excel 散落、紙本簽核、月底手動彙整……這些問題您不是第一個碰到，也不必繼續忍受。
         EasyBiz 由業界資深人士與新銳開發者攜手打造，用真正懂管理的眼光，幫您換一套真正好用的系統。
       </p>
       <div class="hero-origin">
         <div class="hero-origin-icon">🤝</div>
-        <p>由<strong>業界資深人士</strong>與<strong>年輕開發者</strong>共同開發——<br>結合數十年管理經驗與現代技術，專為中小企業量身打造。</p>
+        <p>由<strong>業界資深人士</strong>與<strong>年輕開發者</strong>共同開發——<br>結合企業管理經驗與現代技術，專為中小企業量身打造。</p>
       </div>
-      <a href="#contact" class="btn">申請三個月免費試用</a>
+      <a href="#contact" class="btn">申請三個月試用評估</a>
       <a href="#systems" class="btn btn-outline">了解系統服務</a>
     </div>
+
     <div class="hero-visual">
-      <div class="float-badge">✦ 三個月試用<br>評估零風險</div>
+      <div class="float-badge">✦ 三個月試用<br>先評估再導入</div>
       <div class="hero-card">
         <div class="hero-card-title">✦ EasyBiz 核心價值</div>
         <div class="stat-row">
           <div class="stat-box">
-            <div class="stat-num">30<span style="font-size:16px">+</span></div>
-            <div class="stat-label">年管理實戰經驗</div>
+            <div class="stat-num">多年</div>
+            <div class="stat-label">企業管理實戰經驗</div>
           </div>
           <div class="stat-box">
             <div class="stat-num">2</div>
@@ -771,7 +761,6 @@ footer {
 
 <div class="divider"></div>
 
-<!-- STORY -->
 <section class="section story-section" id="story">
   <div class="container story-grid">
     <div class="story-img-wrap">
@@ -788,12 +777,12 @@ footer {
       <div class="sec-eyebrow">我們的故事</div>
       <h2 class="sec-title">不是科技公司出身，<br>是管理現場走出來的</h2>
       <div class="story-quote">
-        「我們在企業裡看了幾十年 Excel 出錯、紙本簽核延誤、主管要報表卻找不到數字，最後決定自己動手解決這件事。」
+        「我們在企業裡看見 Excel 出錯、紙本簽核延誤、主管要報表卻找不到數字，最後決定自己動手解決這件事。」
       </div>
       <ul class="story-points">
         <li>
           <div class="sp-dot">1</div>
-          <span><strong>資深業界人士</strong>帶來真實的管理痛點視角——系統是否好用，我們用自身經驗來判斷，不是用功能表來堆砌。</span>
+          <span><strong>資深業界人士</strong>帶來真實的管理痛點視角——系統是否好用，我們用實務經驗來判斷，不是用功能表來堆砌。</span>
         </li>
         <li>
           <div class="sp-dot">2</div>
@@ -810,7 +799,6 @@ footer {
 
 <div class="divider"></div>
 
-<!-- PAIN POINTS -->
 <section class="section pain-section">
   <div class="container">
     <div class="text-center">
@@ -853,9 +841,8 @@ footer {
   </div>
 </section>
 
-<div class="divider" style="background:none; background: linear-gradient(90deg, transparent, rgba(30,64,175,.3), transparent);"></div>
+<div class="divider"></div>
 
-<!-- SYSTEMS -->
 <section class="section systems-section" id="systems">
   <div class="container">
     <div class="text-center">
@@ -898,7 +885,6 @@ footer {
 
 <div class="divider"></div>
 
-<!-- TRIAL -->
 <section class="section trial-section" id="trial">
   <div class="container">
     <div class="trial-box">
@@ -907,10 +893,10 @@ footer {
         <h2>先試用，<br>滿意再談正式導入</h2>
         <p>我們深知企業更換系統的顧慮——怕不好用、怕換到一半廠商跑路、怕花了錢沒效果。所以我們把風險留給自己，讓您先實際體驗。</p>
         <ul class="trial-list">
-          <li><span class="tick">✓</span> 試用期間可實際操作真實環境</li>
+          <li><span class="tick">✓</span> 試用期間可實際操作測試環境</li>
           <li><span class="tick">✓</span> 確認介面、流程、報表是否符合需求</li>
-          <li><span class="tick">✓</span> 由我們親自陪同導覽，回答所有問題</li>
-          <li><span class="tick">✓</span> 試用不滿意，直接說再見，沒有壓力</li>
+          <li><span class="tick">✓</span> 由我們親自陪同導覽，回答系統問題</li>
+          <li><span class="tick">✓</span> 試用後再評估是否正式導入</li>
         </ul>
         <a href="#contact" class="btn">立即申請試用</a>
       </div>
@@ -950,7 +936,6 @@ footer {
 
 <div class="divider"></div>
 
-<!-- WHO -->
 <section class="section who-section">
   <div class="container">
     <div class="text-center">
@@ -980,7 +965,6 @@ footer {
 
 <div class="divider"></div>
 
-<!-- FAQ -->
 <section class="section faq-section" id="faq">
   <div class="container">
     <div class="text-center">
@@ -1010,15 +994,14 @@ footer {
       </div>
       <div class="faq-item">
         <div class="faq-q">試用之後如果不適合怎麼辦？</div>
-        <div class="faq-a">試用結束後不滿意可直接說，不會有任何後續追費。我們寧可您試完再決定，也不要您因壓力而簽了不適合的合約。</div>
+        <div class="faq-a">試用結束後若不適合，可直接停止後續導入討論。我們希望您先確認適合，再決定是否正式合作。</div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="divider" style="background: linear-gradient(90deg, transparent, rgba(30,64,175,.3), transparent);"></div>
+<div class="divider"></div>
 
-<!-- CONTACT -->
 <section class="section contact-section" id="contact">
   <div class="container">
     <div class="text-center">
@@ -1026,6 +1009,7 @@ footer {
       <h2 class="sec-title">填寫資料，我們親自回覆您</h2>
       <p class="sec-sub" style="color:#8aa8c0">不是自動回覆，不是客服系統，是真正了解您需求的人來聯絡您。</p>
     </div>
+
     <form class="contact-wrap" action="https://formspree.io/f/xvzlkdql" method="POST">
       <div class="form-row">
         <div class="field">
@@ -1037,10 +1021,12 @@ footer {
           <input type="text" name="name" placeholder="您的姓名" required>
         </div>
       </div>
+
       <div class="field">
         <label>聯絡 Email</label>
         <input type="email" name="email" placeholder="name@company.com" required>
       </div>
+
       <div class="field">
         <label>想了解的系統</label>
         <select name="system">
@@ -1049,6 +1035,7 @@ footer {
           <option>兩個系統都想了解</option>
         </select>
       </div>
+
       <div class="field">
         <label>目前主要管理方式</label>
         <select name="current_method">
@@ -1058,17 +1045,18 @@ footer {
           <option>已有系統但不夠好用</option>
         </select>
       </div>
+
       <div class="field">
         <label>需求說明</label>
         <textarea name="message" placeholder="簡單描述您目前的管理痛點、公司規模，或想改善的流程……" required></textarea>
       </div>
+
       <button type="submit" class="btn" style="width:100%;text-align:center;">送出試用申請 →</button>
       <p class="form-note">送出後我們將在 1～2 個工作天內與您聯繫</p>
     </form>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-logo">EasyBiz 易必思管理系統</div>
   <div class="footer-copy">© EasyBiz｜預算編列系統｜電子表單系統｜為中小企業而生</div>
