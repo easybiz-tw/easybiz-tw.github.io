@@ -1,122 +1,151 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <title>用餐管理系統｜預算系統｜客訴系統｜EasyBiz 易企管理系統</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<title>用餐管理系統｜預算系統｜客訴系統｜EasyBiz 易企管理系統</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="中小企業用餐管理系統、預算系統、客訴系統，取代Excel，提升效率，一次買斷無月費">
 
-    <!-- Google 驗證碼（等等貼） -->
-   
-    <meta name="google-site-verification" content="bs0kmHGcFsQ0g7fToZuNUEHpg6TLlEvoEqAmev5YBjs" />
-
-    <meta name="description" content="中小企業用餐管理系統、預算系統、客訴系統，取代Excel，提升效率，一次買斷無月費">
-
-    <style>
-        body {
-            font-family: Arial;
-            margin: 0;
-            background: #f5f7fa;
-        }
-        header {
-            background: #1e3a8a;
-            color: white;
-            padding: 40px;
-            text-align: center;
-        }
-        h1 {
-            margin: 0;
-        }
-        .container {
-            padding: 30px;
-            max-width: 900px;
-            margin: auto;
-        }
-        .box {
-            background: white;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-        }
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #2563eb;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            color: #888;
-        }
-    </style>
+<style>
+body {
+    font-family: Arial;
+    margin: 0;
+    background: #f4f6f9;
+}
+header {
+    background: linear-gradient(135deg, #1e3a8a, #2563eb);
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+header p {
+    font-size: 18px;
+}
+.hero-btn {
+    margin-top: 20px;
+    display: inline-block;
+    padding: 12px 25px;
+    background: #facc15;
+    color: #000;
+    font-weight: bold;
+    border-radius: 6px;
+    text-decoration: none;
+}
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 30px;
+}
+.section {
+    margin-bottom: 40px;
+}
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+.card img {
+    width: 100%;
+    border-radius: 8px;
+}
+.btn {
+    display: inline-block;
+    padding: 12px 20px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+}
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #888;
+}
+</style>
 </head>
 
 <body>
 
 <header>
     <h1>EasyBiz 易企管理系統</h1>
-    <p>中小企業專用｜簡單好用的內部管理系統</p>
+    <p>中小企業專用｜取代 Excel 的管理系統</p>
+    <a href="#contact" class="hero-btn">👉 免費諮詢</a>
 </header>
 
 <div class="container">
 
-    <div class="box">
-        <h2>還在用 Excel 管理公司？</h2>
-        <p>✔ 每天人工整理資料很麻煩</p>
-        <p>✔ 常常出錯、找不到資料</p>
-        <p>✔ 老闆要報表還要花時間整理</p>
-        <p><b>👉 這些問題，我幫你解決</b></p>
+    <div class="section">
+        <h2>還在用 Excel 管理？</h2>
+        <div class="grid">
+            <div class="card">
+                <p>❌ 手動整理資料很花時間</p>
+                <p>❌ 容易出錯</p>
+                <p>❌ 找不到歷史紀錄</p>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71">
+            </div>
+        </div>
     </div>
 
-    <div class="box">
-        <h2>EasyBiz 解決方案</h2>
-        <ul>
-            <li>✔ 用餐管理系統（快速統計人數）</li>
-            <li>✔ 預算管理系統（掌握每月目標）</li>
-            <li>✔ 客訴管理系統（追蹤問題與責任）</li>
-            <li>✔ 電子表單系統（取代紙本流程）</li>
-        </ul>
+    <div class="section">
+        <h2>我們的解決方案</h2>
+        <div class="grid">
+            <div class="card">✔ 用餐管理系統</div>
+            <div class="card">✔ 預算管理系統</div>
+            <div class="card">✔ 客訴管理系統</div>
+            <div class="card">✔ 電子表單系統</div>
+        </div>
     </div>
 
-    <div class="box">
-        <h2>為什麼選擇我們</h2>
-        <ul>
-            <li>✔ 專做中小企業（50～300人）</li>
-            <li>✔ 系統簡單，員工容易上手</li>
-            <li>✔ 一次買斷，無月費</li>
-            <li>✔ 已有實務導入經驗</li>
-        </ul>
-    </div>
-
-    <div class="box">
+    <div class="section">
         <h2>價格方案</h2>
-        <p>💰 每套系統：約 70,000～100,000 元</p>
-        <p>✔ 含安裝與教學</p>
-        <p>✔ 保固30天</p>
+        <div class="card">
+            💰 每套系統：約 70,000～100,000 元<br><br>
+            ✔ 含安裝與教學<br>
+            ✔ 保固30天<br>
+            ✔ 一次買斷
+        </div>
     </div>
 
-    <div class="box">
+    <div class="section" id="contact">
         <h2>聯絡我們（免費諮詢）</h2>
-
-        <p>👉 填寫需求後，我會親自與您聯絡</p>
 
         <form action="https://formspree.io/f/xvzlkdql" method="POST">
 
-            <label>公司名稱：</label><br>
-            <input type="text" name="company" required><br><br>
+            <label>公司名稱</label>
+            <input type="text" name="company" required>
 
-            <label>聯絡人姓名：</label><br>
-            <input type="text" name="name" required><br><br>
+            <label>聯絡人</label>
+            <input type="text" name="name" required>
 
-            <label>聯絡 Email：</label><br>
-            <input type="email" name="email" required><br><br>
+            <label>Email</label>
+            <input type="email" name="email" required>
 
-            <label>需求內容：</label><br>
-            <textarea name="message" rows="5" required></textarea><br><br>
+            <label>需求內容</label>
+            <textarea name="message" rows="5" required></textarea>
 
-            <button type="submit" class="btn">👉 立即諮詢</button>
+            <button type="submit" class="btn">👉 送出需求</button>
 
         </form>
     </div>
