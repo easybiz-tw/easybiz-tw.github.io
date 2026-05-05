@@ -2,158 +2,358 @@
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
-<title>用餐管理系統｜預算系統｜客訴系統｜EasyBiz 易企管理系統</title>
+<title>EasyBiz 易企管理系統｜中小企業內部管理系統</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="中小企業用餐管理系統、預算系統、客訴系統，取代Excel，提升效率，一次買斷無月費">
+<meta name="description" content="EasyBiz 提供中小企業用餐管理、預算管理、客訴管理、電子表單等內部管理系統，協助企業取代 Excel、提升效率。">
 
 <style>
+* {
+    box-sizing: border-box;
+}
 body {
-    font-family: Arial;
     margin: 0;
-    background: #f4f6f9;
+    font-family: "Microsoft JhengHei", Arial, sans-serif;
+    background: #f4f7fb;
+    color: #1f2937;
 }
-header {
-    background: linear-gradient(135deg, #1e3a8a, #2563eb);
+nav {
+    background: #0f172a;
     color: white;
-    text-align: center;
-    padding: 60px 20px;
+    padding: 16px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-header h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
-}
-header p {
-    font-size: 18px;
-}
-.hero-btn {
-    margin-top: 20px;
-    display: inline-block;
-    padding: 12px 25px;
-    background: #facc15;
-    color: #000;
+nav .logo {
+    font-size: 22px;
     font-weight: bold;
-    border-radius: 6px;
+}
+nav a {
+    color: white;
     text-decoration: none;
+    margin-left: 20px;
+    font-size: 14px;
 }
-.container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 30px;
-}
-.section {
-    margin-bottom: 40px;
-}
-.card {
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-.grid {
+.hero {
+    background: linear-gradient(135deg, #0f172a, #1d4ed8);
+    color: white;
+    padding: 90px 8%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+    align-items: center;
 }
-.card img {
-    width: 100%;
-    border-radius: 8px;
+.hero h1 {
+    font-size: 42px;
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+.hero p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #dbeafe;
+}
+.hero-card {
+    background: white;
+    color: #111827;
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,.25);
+}
+.hero-card h3 {
+    margin-top: 0;
 }
 .btn {
     display: inline-block;
-    padding: 12px 20px;
-    background: #2563eb;
-    color: white;
-    border: none;
-    border-radius: 6px;
+    background: #facc15;
+    color: #111827;
+    padding: 14px 26px;
+    border-radius: 8px;
     text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px;
+    border: none;
     cursor: pointer;
 }
-form input, form textarea {
+.section {
+    padding: 70px 8%;
+}
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.section-title h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+.section-title p {
+    color: #6b7280;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 8px 25px rgba(15, 23, 42, .08);
+}
+.card h3 {
+    margin-top: 0;
+    color: #1d4ed8;
+}
+.card p {
+    line-height: 1.7;
+    color: #4b5563;
+}
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+.list p {
+    background: white;
+    padding: 16px 20px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,.05);
+}
+.price-box {
+    max-width: 720px;
+    margin: auto;
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+.price {
+    font-size: 34px;
+    color: #1d4ed8;
+    font-weight: bold;
+    margin: 20px 0;
+}
+form {
+    max-width: 720px;
+    margin: auto;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+input, textarea, select {
     width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 13px;
+    margin: 8px 0 18px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 15px;
 }
 footer {
+    background: #0f172a;
+    color: #cbd5e1;
     text-align: center;
-    padding: 20px;
-    color: #888;
+    padding: 30px;
+}
+@media (max-width: 900px) {
+    .hero, .two-col {
+        grid-template-columns: 1fr;
+    }
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    nav {
+        display: block;
+    }
+    nav a {
+        display: inline-block;
+        margin: 10px 10px 0 0;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<header>
-    <h1>EasyBiz 易企管理系統</h1>
-    <p>中小企業專用｜取代 Excel 的管理系統</p>
-    <a href="#contact" class="hero-btn">👉 免費諮詢</a>
-</header>
+<nav>
+    <div class="logo">EasyBiz 易企管理系統</div>
+    <div>
+        <a href="#products">系統方案</a>
+        <a href="#process">導入流程</a>
+        <a href="#price">價格</a>
+        <a href="#contact">聯絡我們</a>
+    </div>
+</nav>
 
-<div class="container">
-
-    <div class="section">
-        <h2>還在用 Excel 管理？</h2>
-        <div class="grid">
-            <div class="card">
-                <p>❌ 手動整理資料很花時間</p>
-                <p>❌ 容易出錯</p>
-                <p>❌ 找不到歷史紀錄</p>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71">
-            </div>
-        </div>
+<section class="hero">
+    <div>
+        <h1>把 Excel 管理<br>升級成真正的企業系統</h1>
+        <p>
+            EasyBiz 協助中小企業將日常管理流程系統化，
+            包含用餐管理、預算編列、客訴追蹤與電子表單，
+            讓資料更準確、流程更清楚、報表更即時。
+        </p>
+        <a href="#contact" class="btn">立即免費諮詢</a>
     </div>
 
-    <div class="section">
-        <h2>我們的解決方案</h2>
-        <div class="grid">
-            <div class="card">✔ 用餐管理系統</div>
-            <div class="card">✔ 預算管理系統</div>
-            <div class="card">✔ 客訴管理系統</div>
-            <div class="card">✔ 電子表單系統</div>
-        </div>
+    <div class="hero-card">
+        <h3>適合這樣的公司</h3>
+        <p>✔ 員工約 50～300 人</p>
+        <p>✔ 目前大量使用 Excel 管理</p>
+        <p>✔ 需要簡單、可落地的內部系統</p>
+        <p>✔ 不想負擔大型 ERP 高額費用</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="section-title">
+        <h2>企業常見痛點</h2>
+        <p>很多公司不是沒有資料，而是資料分散、難查、難統計。</p>
     </div>
 
-    <div class="section">
-        <h2>價格方案</h2>
+    <div class="two-col">
+        <div class="list">
+            <p>❌ Excel 檔案版本太多，常常不知道哪個才是最新。</p>
+            <p>❌ 每月報表都要人工整理，容易錯誤又耗時間。</p>
+            <p>❌ 客訴、用餐、預算資料分散，無法快速查詢。</p>
+        </div>
+        <div class="list">
+            <p>✅ 系統集中管理資料，降低人工整理時間。</p>
+            <p>✅ 權限控管，避免每個人都能任意修改資料。</p>
+            <p>✅ 報表即時產生，主管可快速掌握狀況。</p>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="products">
+    <div class="section-title">
+        <h2>系統方案</h2>
+        <p>依照中小企業常見管理需求設計，重點是簡單、實用、可快速導入。</p>
+    </div>
+
+    <div class="grid">
         <div class="card">
-            💰 每套系統：約 70,000～100,000 元<br><br>
-            ✔ 含安裝與教學<br>
-            ✔ 保固30天<br>
-            ✔ 一次買斷
+            <h3>用餐管理系統</h3>
+            <p>員工用餐、餐別修改、訪客報餐、月報表統計，取代人工統計。</p>
+        </div>
+        <div class="card">
+            <h3>預算管理系統</h3>
+            <p>年度預算、每月目標、實績比較、部門與業務績效分析。</p>
+        </div>
+        <div class="card">
+            <h3>客訴管理系統</h3>
+            <p>客訴登錄、責任歸屬、異常分類、廠商統計與改善追蹤。</p>
+        </div>
+        <div class="card">
+            <h3>電子表單系統</h3>
+            <p>表單申請、簽核流程、附件上傳、簽核紀錄與查詢。</p>
         </div>
     </div>
+</section>
 
-    <div class="section" id="contact">
-        <h2>聯絡我們（免費諮詢）</h2>
-
-        <form action="https://formspree.io/f/xvzlkdql" method="POST">
-
-            <label>公司名稱</label>
-            <input type="text" name="company" required>
-
-            <label>聯絡人</label>
-            <input type="text" name="name" required>
-
-            <label>Email</label>
-            <input type="email" name="email" required>
-
-            <label>需求內容</label>
-            <textarea name="message" rows="5" required></textarea>
-
-            <button type="submit" class="btn">👉 送出需求</button>
-
-        </form>
+<section class="section" id="process">
+    <div class="section-title">
+        <h2>導入流程</h2>
+        <p>簡單四步驟，降低企業導入壓力。</p>
     </div>
 
-</div>
+    <div class="grid">
+        <div class="card">
+            <h3>1. 需求訪談</h3>
+            <p>了解目前作業方式、Excel 表單、使用人數與報表需求。</p>
+        </div>
+        <div class="card">
+            <h3>2. 系統確認</h3>
+            <p>確認功能範圍、畫面流程與交付方式。</p>
+        </div>
+        <div class="card">
+            <h3>3. 安裝教學</h3>
+            <p>協助系統安裝，並提供基本操作教學。</p>
+        </div>
+        <div class="card">
+            <h3>4. 上線使用</h3>
+            <p>使用者開始操作，保固期間處理系統問題。</p>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="price">
+    <div class="section-title">
+        <h2>價格方案</h2>
+        <p>適合預算有限、但希望改善管理效率的中小企業。</p>
+    </div>
+
+    <div class="price-box">
+        <h3>一次授權使用方案</h3>
+        <div class="price">NT$ 70,000 ～ 100,000 / 套</div>
+        <p>✔ 含基本安裝與操作教學</p>
+        <p>✔ 不含原始碼</p>
+        <p>✔ 保固 30 天，僅處理系統錯誤</p>
+        <p>✔ 額外客製功能另行報價</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="section-title">
+        <h2>常見問題</h2>
+    </div>
+
+    <div class="two-col">
+        <div class="card">
+            <h3>是否含原始碼？</h3>
+            <p>不含原始碼，提供系統使用授權與安裝部署。</p>
+        </div>
+        <div class="card">
+            <h3>是否可以客製？</h3>
+            <p>可以，超出標準功能的客製需求會另外報價。</p>
+        </div>
+        <div class="card">
+            <h3>是否每月收費？</h3>
+            <p>目前以一次授權使用為主，無固定月費。</p>
+        </div>
+        <div class="card">
+            <h3>適合哪些公司？</h3>
+            <p>適合中小企業、工廠、行政管理單位與仍大量使用 Excel 的公司。</p>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="contact">
+    <div class="section-title">
+        <h2>聯絡我們</h2>
+        <p>請留下需求，我會親自與您聯絡。</p>
+    </div>
+
+    <form action="https://formspree.io/f/xvzlkdql" method="POST">
+        <label>公司名稱</label>
+        <input type="text" name="company" required>
+
+        <label>聯絡人姓名</label>
+        <input type="text" name="name" required>
+
+        <label>聯絡 Email</label>
+        <input type="email" name="email" required>
+
+        <label>想了解的系統</label>
+        <select name="system">
+            <option>用餐管理系統</option>
+            <option>預算管理系統</option>
+            <option>客訴管理系統</option>
+            <option>電子表單系統</option>
+            <option>其他需求</option>
+        </select>
+
+        <label>需求內容</label>
+        <textarea name="message" rows="6" required></textarea>
+
+        <button type="submit" class="btn">送出需求</button>
+    </form>
+</section>
 
 <footer>
-    © EasyBiz 系統
+    © EasyBiz 易企管理系統｜中小企業內部管理系統
 </footer>
 
 </body>
