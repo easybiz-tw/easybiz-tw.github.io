@@ -4,405 +4,1074 @@
 <meta charset="UTF-8">
 <title>EasyBiz 易企管理系統｜預算編列與電子表單導入服務</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="google-site-verification" content="nFcmn7nCsjuanIeISdI6gGgLWExOcpswe5sbo8j4y8I" />
-<meta name="description" content="EasyBiz 提供中小企業預算編列系統與電子表單系統導入服務，協助企業取代 Excel 與紙本流程，提供三個月試用評估。">
+<meta name="description" content="EasyBiz 由資深業界人士與新銳開發者共同打造，提供中小企業預算編列系統與電子表單系統導入服務，協助企業取代 Excel 與紙本流程，三個月試用評估。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 <style>
-*{box-sizing:border-box}
-body{
-    margin:0;
-    font-family:"Microsoft JhengHei", Arial, sans-serif;
-    background:#eef2f6;
-    color:#1f2937;
-    line-height:1.6;
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:       #0f1923;
+  --deep:      #0d2137;
+  --navy:      #153352;
+  --gold:      #c9983a;
+  --gold-lt:   #f0c96a;
+  --cream:     #f7f4ef;
+  --mist:      #eaf0f6;
+  --slate:     #4a6580;
+  --light:     #ffffff;
+  --r:         18px;
 }
-nav{
-    background:#0b1f3a;
-    color:white;
-    padding:14px 7%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    position:sticky;
-    top:0;
-    z-index:10;
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.7;
+  overflow-x: hidden;
 }
-.logo{
-    font-size:22px;
-    font-weight:800;
+
+/* ── NAV ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(13, 33, 55, 0.96);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6%;
+  height: 64px;
+  border-bottom: 1px solid rgba(201,152,58,.25);
 }
-nav a{
-    color:#dbeafe;
-    text-decoration:none;
-    margin-left:20px;
-    font-size:15px;
+.logo-wrap { display: flex; align-items: center; gap: 10px; }
+.logo-icon {
+  width: 34px; height: 34px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-lt));
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; font-weight: 900; color: var(--deep);
+  font-family: 'Noto Serif TC', serif;
 }
-.hero{
-    background:linear-gradient(135deg,#0b1f3a,#1e40af);
-    color:white;
-    padding:64px 7%;
-    display:grid;
-    grid-template-columns:1.05fr .95fr;
-    gap:36px;
-    align-items:center;
+.logo-text {
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 700;
+  color: #fff;
+  font-size: 17px;
+  letter-spacing: .5px;
 }
-.hero h1{
-    font-size:42px;
-    line-height:1.25;
-    margin:0 0 18px;
+.logo-sub { color: var(--gold-lt); font-size: 11px; margin-left: 2px; }
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 28px;
 }
-.hero p{
-    font-size:18px;
-    color:#dbeafe;
-    margin:0 0 12px;
+nav ul a {
+  color: #c8d8e8;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: .3px;
+  transition: color .2s;
 }
-.hero img{
-    width:100%;
-    border-radius:18px;
-    box-shadow:0 22px 45px rgba(0,0,0,.28);
+nav ul a:hover { color: var(--gold-lt); }
+.nav-cta {
+  background: linear-gradient(135deg, var(--gold), var(--gold-lt));
+  color: var(--deep) !important;
+  padding: 7px 18px;
+  border-radius: 6px;
+  font-weight: 700 !important;
 }
-.btn{
-    display:inline-block;
-    background:#facc15;
-    color:#111827;
-    padding:13px 24px;
-    border-radius:8px;
-    text-decoration:none;
-    font-weight:800;
-    margin-top:18px;
-    border:none;
-    cursor:pointer;
+
+/* ── HERO ── */
+.hero {
+  background: var(--deep);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 80px 6% 60px;
 }
-.section{
-    padding:48px 7%;
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 50%, rgba(21,51,82,.6) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 15% 80%, rgba(201,152,58,.12) 0%, transparent 60%);
+  pointer-events: none;
 }
-.section-title{
-    text-align:center;
-    margin-bottom:24px;
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 60px;
+  align-items: center;
+  max-width: 1240px;
+  margin: auto;
+  position: relative;
+  z-index: 1;
 }
-.section-title h2{
-    margin:0 0 8px;
-    font-size:30px;
-    color:#0b1f3a;
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(201,152,58,.18);
+  border: 1px solid rgba(201,152,58,.4);
+  color: var(--gold-lt);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 22px;
+  letter-spacing: .5px;
 }
-.section-title p{
-    margin:0;
-    color:#64748b;
+.hero-tag::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold-lt);
+  animation: pulse 2s infinite;
 }
-.grid-2{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:24px;
+@keyframes pulse {
+  0%,100%{ opacity:1; transform:scale(1); }
+  50%{ opacity:.4; transform:scale(1.4); }
 }
-.grid-3{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.25;
+  color: #fff;
+  font-weight: 900;
+  margin-bottom: 20px;
 }
-.card{
-    background:white;
-    border-radius:16px;
-    padding:24px;
-    box-shadow:0 8px 24px rgba(15,23,42,.08);
+.hero h1 em {
+  font-style: normal;
+  background: linear-gradient(90deg, var(--gold), var(--gold-lt));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
-.card h3{
-    margin:0 0 10px;
-    color:#1d4ed8;
-    font-size:22px;
+.hero-lead {
+  font-size: 16px;
+  color: #a8c0d8;
+  max-width: 520px;
+  margin-bottom: 10px;
+  line-height: 1.8;
 }
-.card p{
-    margin:8px 0;
-    color:#475569;
+.hero-origin {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 18px 0 28px;
+  max-width: 500px;
 }
-.card img{
-    width:100%;
-    border-radius:14px;
-    margin-bottom:14px;
+.hero-origin-icon { font-size: 26px; }
+.hero-origin p {
+  font-size: 13.5px;
+  color: #c8d8e8;
+  line-height: 1.5;
 }
-.dark-box{
-    background:#0b1f3a;
-    color:white;
-    border-radius:20px;
-    padding:34px;
+.hero-origin strong { color: var(--gold-lt); }
+.btn {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--gold), var(--gold-lt));
+  color: var(--deep);
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 15px;
+  text-decoration: none;
+  letter-spacing: .3px;
+  transition: transform .2s, box-shadow .2s;
+  border: none;
+  cursor: pointer;
 }
-.dark-box h2{
-    margin-top:0;
+.btn:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(201,152,58,.35); }
+.btn-outline {
+  background: transparent;
+  border: 2px solid rgba(255,255,255,.3);
+  color: #fff;
+  margin-left: 12px;
 }
-.dark-box p{
-    color:#dbeafe;
+.btn-outline:hover { border-color: var(--gold-lt); color: var(--gold-lt); box-shadow: none; }
+
+/* hero right card */
+.hero-visual {
+  position: relative;
 }
-.badge{
-    display:inline-block;
-    background:#dbeafe;
-    color:#1e3a8a;
-    padding:6px 12px;
-    border-radius:999px;
-    font-size:14px;
-    font-weight:700;
-    margin-bottom:10px;
+.hero-card {
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 20px;
+  padding: 28px;
+  backdrop-filter: blur(8px);
 }
-.flow{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:18px;
+.hero-card-title {
+  font-size: 13px;
+  color: var(--gold-lt);
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
 }
-.step{
-    background:white;
-    padding:22px;
-    border-radius:16px;
-    box-shadow:0 8px 22px rgba(15,23,42,.08);
+.stat-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
 }
-.step span{
-    font-size:26px;
-    font-weight:900;
-    color:#1d4ed8;
+.stat-box {
+  background: rgba(255,255,255,.06);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
 }
-form{
-    max-width:760px;
-    margin:auto;
-    background:white;
-    padding:34px;
-    border-radius:20px;
-    box-shadow:0 10px 30px rgba(15,23,42,.10);
+.stat-num {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--gold-lt);
+  line-height: 1;
 }
-input,textarea,select{
-    width:100%;
-    padding:12px;
-    margin:6px 0 14px;
-    border:1px solid #cbd5e1;
-    border-radius:8px;
-    font-size:15px;
+.stat-label { font-size: 12px; color: #8aa8c0; margin-top: 4px; }
+.feature-list { list-style: none; }
+.feature-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  font-size: 14px;
+  color: #c8d8e8;
 }
-label{
-    font-weight:700;
+.feature-list li:last-child { border-bottom: none; }
+.check {
+  width: 20px; height: 20px;
+  background: rgba(201,152,58,.2);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold-lt);
+  font-size: 11px;
+  flex-shrink: 0;
 }
-footer{
-    background:#0b1f3a;
-    color:#cbd5e1;
-    text-align:center;
-    padding:26px;
+.float-badge {
+  position: absolute;
+  top: -16px; right: -16px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-lt));
+  color: var(--deep);
+  font-size: 12px;
+  font-weight: 800;
+  padding: 8px 14px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(201,152,58,.4);
+  white-space: nowrap;
 }
-@media(max-width:900px){
-    .hero,.grid-2,.grid-3,.flow{
-        grid-template-columns:1fr;
-    }
-    nav{
-        display:block;
-    }
-    nav a{
-        display:inline-block;
-        margin:8px 12px 0 0;
-    }
-    .hero h1{
-        font-size:32px;
-    }
+
+/* ── SECTION SHARED ── */
+section { padding: 80px 6%; }
+.container { max-width: 1200px; margin: auto; }
+.sec-eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.sec-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 900;
+  color: var(--deep);
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+.sec-sub {
+  font-size: 16px;
+  color: var(--slate);
+  max-width: 560px;
+  line-height: 1.8;
+}
+.text-center { text-align: center; }
+.text-center .sec-sub { margin: 0 auto; }
+
+/* ── STORY SECTION ── */
+.story-section { background: #fff; }
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.story-img-wrap { position: relative; }
+.story-img {
+  width: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+  height: 400px;
+  display: block;
+}
+.story-img-placeholder {
+  width: 100%;
+  height: 400px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, var(--deep) 0%, var(--navy) 50%, #1a4a72 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #fff;
+  font-size: 15px;
+  position: relative;
+  overflow: hidden;
+}
+.story-img-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 70%, rgba(201,152,58,.2) 0%, transparent 60%);
+}
+.story-icons { font-size: 48px; position: relative; z-index:1; }
+.story-label { position: relative; z-index: 1; color: #a8c0d8; font-size: 14px; }
+.story-float {
+  position: absolute;
+  bottom: -18px; right: -18px;
+  background: var(--gold);
+  color: var(--deep);
+  border-radius: 14px;
+  padding: 14px 20px;
+  font-weight: 800;
+  font-size: 13px;
+  box-shadow: 0 8px 24px rgba(201,152,58,.35);
+  line-height: 1.4;
+  text-align: center;
+}
+.story-float span { font-size: 22px; display: block; font-family: 'Noto Serif TC', serif; }
+.story-quote {
+  background: var(--mist);
+  border-left: 4px solid var(--gold);
+  border-radius: 0 12px 12px 0;
+  padding: 18px 20px;
+  margin: 24px 0;
+  font-size: 15px;
+  color: var(--slate);
+  font-style: italic;
+  line-height: 1.8;
+}
+.story-points { list-style: none; margin-top: 16px; }
+.story-points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+  font-size: 15px;
+  color: var(--slate);
+}
+.sp-dot {
+  width: 22px; height: 22px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-lt));
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 2px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px;
+  color: var(--deep);
+  font-weight: 800;
+}
+
+/* ── PAIN POINTS ── */
+.pain-section { background: var(--cream); }
+.pain-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+.pain-card {
+  background: #fff;
+  border-radius: var(--r);
+  padding: 28px;
+  border: 1px solid #e8edf3;
+  position: relative;
+  overflow: hidden;
+  transition: transform .25s, box-shadow .25s;
+}
+.pain-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(15,25,35,.1); }
+.pain-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-lt));
+}
+.pain-icon { font-size: 32px; margin-bottom: 14px; }
+.pain-card h3 { font-size: 17px; font-weight: 700; color: var(--deep); margin-bottom: 8px; }
+.pain-card p { font-size: 14px; color: var(--slate); line-height: 1.7; }
+
+/* ── SYSTEMS ── */
+.systems-section { background: var(--deep); }
+.systems-section .sec-title { color: #fff; }
+.systems-section .sec-sub { color: #8aa8c0; }
+.systems-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-top: 48px;
+}
+.sys-card {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 20px;
+  padding: 34px;
+  transition: border-color .25s, background .25s;
+}
+.sys-card:hover {
+  border-color: rgba(201,152,58,.5);
+  background: rgba(255,255,255,.09);
+}
+.sys-num {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 48px;
+  font-weight: 900;
+  color: rgba(201,152,58,.25);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.sys-card h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--gold-lt);
+  margin-bottom: 10px;
+}
+.sys-card .sys-desc {
+  font-size: 14.5px;
+  color: #8aa8c0;
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+.sys-features { list-style: none; }
+.sys-features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  font-size: 14px;
+  color: #c8d8e8;
+}
+.sys-features li:last-child { border: none; }
+.sys-features .dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+/* ── TRIAL ── */
+.trial-section { background: var(--cream); }
+.trial-box {
+  background: linear-gradient(135deg, var(--deep) 0%, var(--navy) 100%);
+  border-radius: 24px;
+  padding: 56px 60px;
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 48px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.trial-box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 80% 50%, rgba(201,152,58,.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+.trial-box h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 32px;
+  color: #fff;
+  font-weight: 900;
+  margin-bottom: 14px;
+}
+.trial-box p { color: #8aa8c0; font-size: 15px; margin-bottom: 10px; line-height: 1.8; }
+.trial-list { list-style: none; margin: 20px 0 28px; }
+.trial-list li {
+  display: flex; align-items: center; gap: 10px;
+  color: #c8d8e8; font-size: 14.5px; margin-bottom: 10px;
+}
+.trial-list .tick {
+  width: 20px; height: 20px;
+  background: rgba(201,152,58,.2);
+  border: 1px solid rgba(201,152,58,.4);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold-lt); font-size: 10px; font-weight: 800;
+  flex-shrink: 0;
+}
+.trial-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  z-index: 1;
+}
+.t-step {
+  display: flex;
+  gap: 16px;
+  position: relative;
+}
+.t-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 18px;
+  top: 40px;
+  bottom: -12px;
+  width: 1px;
+  background: rgba(201,152,58,.3);
+}
+.t-num {
+  width: 36px; height: 36px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-lt));
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 900; font-size: 14px; color: var(--deep);
+  flex-shrink: 0;
+}
+.t-info { padding-bottom: 24px; }
+.t-info h4 { color: var(--gold-lt); font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+.t-info p { color: #8aa8c0; font-size: 13px; line-height: 1.6; }
+
+/* ── WHO IS IT FOR ── */
+.who-section { background: #fff; }
+.who-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+.who-card {
+  border: 2px solid #e8edf3;
+  border-radius: var(--r);
+  padding: 28px;
+  transition: border-color .25s, transform .25s;
+  position: relative;
+}
+.who-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+.who-emoji { font-size: 36px; margin-bottom: 14px; }
+.who-card h3 { font-size: 17px; font-weight: 700; color: var(--deep); margin-bottom: 8px; }
+.who-card p { font-size: 14px; color: var(--slate); line-height: 1.7; }
+
+/* ── FAQ ── */
+.faq-section { background: var(--cream); }
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 40px;
+}
+.faq-item {
+  background: #fff;
+  border-radius: 14px;
+  padding: 24px;
+  border: 1px solid #e8edf3;
+}
+.faq-q {
+  font-weight: 700;
+  color: var(--deep);
+  font-size: 15px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.faq-q::before {
+  content: 'Q';
+  background: linear-gradient(135deg, var(--gold), var(--gold-lt));
+  color: var(--deep);
+  font-size: 11px;
+  font-weight: 900;
+  padding: 2px 7px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.faq-a { font-size: 14px; color: var(--slate); line-height: 1.7; padding-left: 24px; }
+
+/* ── CONTACT ── */
+.contact-section { background: var(--deep); }
+.contact-section .sec-title { color: #fff; }
+.contact-section .sec-sub { color: #8aa8c0; }
+.contact-wrap {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 24px;
+  padding: 44px;
+  max-width: 700px;
+  margin: 40px auto 0;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.field { margin-bottom: 18px; }
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: #8aa8c0;
+  letter-spacing: .5px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+input, textarea, select {
+  width: 100%;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 8px;
+  color: #fff;
+  padding: 12px 14px;
+  font-size: 14.5px;
+  font-family: 'Noto Sans TC', sans-serif;
+  transition: border-color .2s;
+  -webkit-appearance: none;
+}
+input::placeholder, textarea::placeholder { color: rgba(255,255,255,.28); }
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+select option { background: var(--deep); color: #fff; }
+textarea { resize: vertical; min-height: 110px; }
+.form-note {
+  font-size: 13px;
+  color: rgba(255,255,255,.35);
+  text-align: center;
+  margin-top: 14px;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: #080f18;
+  padding: 30px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-logo {
+  font-family: 'Noto Serif TC', serif;
+  color: var(--gold-lt);
+  font-size: 16px;
+  font-weight: 700;
+}
+.footer-copy {
+  font-size: 13px;
+  color: #4a6580;
+}
+
+/* ── DIVIDER ── */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,152,58,.4), transparent);
+  margin: 0 6%;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+  .hero-grid, .story-grid, .systems-grid, .trial-box { grid-template-columns: 1fr; }
+  .pain-grid, .who-grid { grid-template-columns: 1fr 1fr; }
+  .faq-grid, .form-row { grid-template-columns: 1fr; }
+  .trial-box { padding: 36px 28px; }
+  nav ul { display: none; }
+  .float-badge { display: none; }
+  .story-float { bottom: -10px; right: -4px; font-size: 12px; }
+}
+@media (max-width: 600px) {
+  .pain-grid, .who-grid { grid-template-columns: 1fr; }
+  section { padding: 56px 5%; }
+  .hero { padding: 100px 5% 60px; }
 }
 </style>
 </head>
-
 <body>
 
+<!-- NAV -->
 <nav>
-    <div class="logo">EasyBiz 易企管理系統</div>
+  <div class="logo-wrap">
+    <div class="logo-icon">易</div>
     <div>
-        <a href="#systems">系統服務</a>
-        <a href="#trial">試用方案</a>
-        <a href="#process">導入流程</a>
-        <a href="#contact">申請試用</a>
+      <div class="logo-text">EasyBiz 易企管理系統</div>
     </div>
+  </div>
+  <ul>
+    <li><a href="#story">關於我們</a></li>
+    <li><a href="#systems">系統服務</a></li>
+    <li><a href="#trial">試用方案</a></li>
+    <li><a href="#faq">常見問題</a></li>
+    <li><a href="#contact" class="nav-cta">申請試用</a></li>
+  </ul>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
+  <div class="hero-grid">
     <div>
-        <div class="badge">中小企業內部管理系統導入服務</div>
-        <h1>把 Excel 與紙本流程<br>升級成真正可管理的系統</h1>
-        <p>EasyBiz 專注於「預算編列系統」與「電子表單系統」，協助企業改善資料分散、權限不清、報表難整理的問題。</p>
-        <p>先提供三個月試用評估，確認適合再討論正式導入。</p>
-        <a href="#contact" class="btn">申請三個月試用</a>
+      <div class="hero-tag">中小企業管理系統導入服務</div>
+      <h1>把三十年的<em>實戰智慧</em><br>化為企業數位升級的力量</h1>
+      <p class="hero-lead">
+        Excel 散落、紙本簽核、月底手動彙整……這些問題您不是第一個碰到，也不必繼續忍受。
+        EasyBiz 由業界資深人士與新銳開發者攜手打造，用真正懂管理的眼光，幫您換一套真正好用的系統。
+      </p>
+      <div class="hero-origin">
+        <div class="hero-origin-icon">🤝</div>
+        <p>由<strong>業界資深人士</strong>與<strong>年輕開發者</strong>共同開發——<br>結合數十年管理經驗與現代技術，專為中小企業量身打造。</p>
+      </div>
+      <a href="#contact" class="btn">申請三個月免費試用</a>
+      <a href="#systems" class="btn btn-outline">了解系統服務</a>
+    </div>
+    <div class="hero-visual">
+      <div class="float-badge">✦ 三個月試用<br>評估零風險</div>
+      <div class="hero-card">
+        <div class="hero-card-title">✦ EasyBiz 核心價值</div>
+        <div class="stat-row">
+          <div class="stat-box">
+            <div class="stat-num">30<span style="font-size:16px">+</span></div>
+            <div class="stat-label">年管理實戰經驗</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">2</div>
+            <div class="stat-label">主力系統即刻試用</div>
+          </div>
+        </div>
+        <ul class="feature-list">
+          <li><div class="check">✓</div> 預算編列系統，告別 Excel 混亂</li>
+          <li><div class="check">✓</div> 電子表單系統，線上簽核有憑有據</li>
+          <li><div class="check">✓</div> 三個月試用，確認再談正式導入</li>
+          <li><div class="check">✓</div> 依企業流程調整，不強迫您改流程</li>
+          <li><div class="check">✓</div> 親自服務，不是客服機器人</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- STORY -->
+<section class="section story-section" id="story">
+  <div class="container story-grid">
+    <div class="story-img-wrap">
+      <div class="story-img-placeholder">
+        <div class="story-icons">👔🎓</div>
+        <div class="story-label">資深經驗 × 青年技術</div>
+      </div>
+      <div class="story-float">
+        <span>從痛點<br>出發</span>
+        因為懂得，<br>所以更好用
+      </div>
     </div>
     <div>
-        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1000&q=80" alt="企業系統導入">
+      <div class="sec-eyebrow">我們的故事</div>
+      <h2 class="sec-title">不是科技公司出身，<br>是管理現場走出來的</h2>
+      <div class="story-quote">
+        「我們在企業裡看了幾十年 Excel 出錯、紙本簽核延誤、主管要報表卻找不到數字，最後決定自己動手解決這件事。」
+      </div>
+      <ul class="story-points">
+        <li>
+          <div class="sp-dot">1</div>
+          <span><strong>資深業界人士</strong>帶來真實的管理痛點視角——系統是否好用，我們用自身經驗來判斷，不是用功能表來堆砌。</span>
+        </li>
+        <li>
+          <div class="sp-dot">2</div>
+          <span><strong>年輕開發者</strong>帶來現代技術與新鮮眼光——確保系統介面直觀、維護彈性、可持續演進。</span>
+        </li>
+        <li>
+          <div class="sp-dot">3</div>
+          <span><strong>精準聚焦</strong>只做最有管理價值的兩套系統，不求大而全，求讓企業真正用得起來。</span>
+        </li>
+      </ul>
     </div>
+  </div>
 </section>
 
-<section class="section">
-    <div class="section-title">
-        <h2>企業常見管理痛點</h2>
-        <p>不是公司沒有資料，而是資料太分散、太依賴人工整理。</p>
-    </div>
+<div class="divider"></div>
 
-    <div class="grid-3">
-        <div class="card">
-            <h3>Excel 版本混亂</h3>
-            <p>預算、簽核、申請資料散落在不同檔案，主管很難掌握最新狀態。</p>
-        </div>
-        <div class="card">
-            <h3>權限不容易控管</h3>
-            <p>每個人都能改檔案，資料正確性與責任歸屬容易產生爭議。</p>
-        </div>
-        <div class="card">
-            <h3>報表整理太耗時</h3>
-            <p>月底、季報、年度彙總都要人工整理，容易出錯也浪費時間。</p>
-        </div>
+<!-- PAIN POINTS -->
+<section class="section pain-section">
+  <div class="container">
+    <div class="text-center">
+      <div class="sec-eyebrow">企業常見問題</div>
+      <h2 class="sec-title">您是否也有這些困擾？</h2>
+      <p class="sec-sub">不是您的員工不努力，是工具和流程讓大家白費力氣。</p>
     </div>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-icon">📁</div>
+        <h3>Excel 版本永遠對不上</h3>
+        <p>每個人手上的版本不同，主管問起來誰都說自己的是最新的，就是沒辦法確認。</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">🔐</div>
+        <h3>誰改了什麼，沒有紀錄</h3>
+        <p>資料被改了找不到人負責，權限無法細分，重要數字隨時可能被覆蓋。</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">📊</div>
+        <h3>月底整報表整到天亮</h3>
+        <p>每次要產出報表就是一場災難，耗費大量人力，還容易出現計算錯誤。</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">📝</div>
+        <h3>簽核靠 Email 追來追去</h3>
+        <p>申請單不知道流到誰那邊了，簽核完找不到記錄，出事了沒有依據。</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">📦</div>
+        <h3>ERP 太貴又太複雜</h3>
+        <p>大型 ERP 動輒百萬導入費、半年建置期，中小企業根本等不起也用不完。</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">🔄</div>
+        <h3>離職一人，流程全斷</h3>
+        <p>關鍵人員離職後，原本只有他懂的流程就跟著消失，無法交接也無法查詢。</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="section" id="systems">
-    <div class="section-title">
-        <h2>目前主力系統服務</h2>
-        <p>先聚焦最有管理價值的兩個系統，讓企業可以快速試用、快速評估。</p>
-    </div>
+<div class="divider" style="background:none; background: linear-gradient(90deg, transparent, rgba(30,64,175,.3), transparent);"></div>
 
-    <div class="grid-2">
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1000&q=80" alt="預算編列系統">
-            <h3>預算編列系統</h3>
-            <p>適合需要管理年度預算、每月目標、業務實績與部門績效的公司。</p>
-            <p>✔ 年度 / 月度預算編列</p>
-            <p>✔ 實績比較與差異分析</p>
-            <p>✔ 部門、業務、客戶、產品分類統計</p>
-            <p>✔ 主管查詢與報表匯出</p>
-        </div>
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1000&q=80" alt="電子表單系統">
-            <h3>電子表單系統</h3>
-            <p>適合想將紙本簽核、Email 簽核、Excel 申請流程改為線上化的公司。</p>
-            <p>✔ 表單申請與簽核流程</p>
-            <p>✔ 簽核紀錄與附件管理</p>
-            <p>✔ 權限控管與表單查詢</p>
-            <p>✔ 可依企業流程逐步擴充</p>
-        </div>
+<!-- SYSTEMS -->
+<section class="section systems-section" id="systems">
+  <div class="container">
+    <div class="text-center">
+      <div class="sec-eyebrow" style="color:var(--gold-lt)">主力系統服務</div>
+      <h2 class="sec-title">兩套系統，解決最核心的管理問題</h2>
+      <p class="sec-sub" style="color:#8aa8c0">先把最痛的地方解決好，再逐步擴展。不追求功能多，追求每個功能都真正有用。</p>
     </div>
+    <div class="systems-grid">
+      <div class="sys-card">
+        <div class="sys-num">01</div>
+        <h3>預算編列系統</h3>
+        <p class="sys-desc">
+          讓年度預算不再是一份沒人能即時看的 Excel，而是每個人各司其職、主管隨時掌握全局的管理工具。
+        </p>
+        <ul class="sys-features">
+          <li><span class="dot"></span> 年度 / 月度預算分層編列</li>
+          <li><span class="dot"></span> 實績自動比對，差異即時呈現</li>
+          <li><span class="dot"></span> 依部門、業務、客戶、產品分類統計</li>
+          <li><span class="dot"></span> 主管查詢儀表板，一鍵匯出報表</li>
+          <li><span class="dot"></span> 權限分層，各填各的、各看各的</li>
+        </ul>
+      </div>
+      <div class="sys-card">
+        <div class="sys-num">02</div>
+        <h3>電子表單系統</h3>
+        <p class="sys-desc">
+          把紙本申請、Email 追蹤、Excel 核准全部整合到一個有記錄、有流程、有附件管理的線上平台。
+        </p>
+        <ul class="sys-features">
+          <li><span class="dot"></span> 線上表單申請，即時送件</li>
+          <li><span class="dot"></span> 多階段簽核流程，設定彈性</li>
+          <li><span class="dot"></span> 完整簽核記錄與附件管理</li>
+          <li><span class="dot"></span> 查詢歷史申請，有據可查</li>
+          <li><span class="dot"></span> 依企業流程逐步客製擴充</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="section" id="trial">
-    <div class="dark-box">
-        <h2>三個月試用導入方案</h2>
-        <p>為了降低企業導入風險，EasyBiz 可先提供三個月試用評估。</p>
-        <p>試用期間可確認系統畫面、流程、報表與實際作業是否符合需求。</p>
-        <p>若試用後覺得合適，再討論正式導入、授權範圍與客製需求。</p>
-        <a href="#contact" class="btn">我要申請試用</a>
+<div class="divider"></div>
+
+<!-- TRIAL -->
+<section class="section trial-section" id="trial">
+  <div class="container">
+    <div class="trial-box">
+      <div style="position:relative;z-index:1">
+        <div class="sec-eyebrow">三個月試用方案</div>
+        <h2>先試用，<br>滿意再談正式導入</h2>
+        <p>我們深知企業更換系統的顧慮——怕不好用、怕換到一半廠商跑路、怕花了錢沒效果。所以我們把風險留給自己，讓您先實際體驗。</p>
+        <ul class="trial-list">
+          <li><span class="tick">✓</span> 試用期間可實際操作真實環境</li>
+          <li><span class="tick">✓</span> 確認介面、流程、報表是否符合需求</li>
+          <li><span class="tick">✓</span> 由我們親自陪同導覽，回答所有問題</li>
+          <li><span class="tick">✓</span> 試用不滿意，直接說再見，沒有壓力</li>
+        </ul>
+        <a href="#contact" class="btn">立即申請試用</a>
+      </div>
+      <div class="trial-steps">
+        <div class="t-step">
+          <div class="t-num">1</div>
+          <div class="t-info">
+            <h4>需求了解</h4>
+            <p>聊聊您目前的流程、痛點、人員規模，確認系統是否適合。</p>
+          </div>
+        </div>
+        <div class="t-step">
+          <div class="t-num">2</div>
+          <div class="t-info">
+            <h4>建立試用環境</h4>
+            <p>依您的情境建立測試帳號，讓相關人員實際操作。</p>
+          </div>
+        </div>
+        <div class="t-step">
+          <div class="t-num">3</div>
+          <div class="t-info">
+            <h4>收集回饋調整</h4>
+            <p>蒐集使用者意見，確認是否符合內部實際作業需求。</p>
+          </div>
+        </div>
+        <div class="t-step">
+          <div class="t-num">4</div>
+          <div class="t-info">
+            <h4>正式導入規劃</h4>
+            <p>試用滿意後，再一起討論授權範圍、客製需求與導入時程。</p>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 
-<section class="section" id="process">
-    <div class="section-title">
-        <h2>導入流程</h2>
-        <p>以簡單、清楚、可落地為原則，不增加企業額外負擔。</p>
-    </div>
+<div class="divider"></div>
 
-    <div class="flow">
-        <div class="step">
-            <span>01</span>
-            <h3>需求了解</h3>
-            <p>了解目前 Excel、紙本流程與實際管理痛點。</p>
-        </div>
-        <div class="step">
-            <span>02</span>
-            <h3>試用環境</h3>
-            <p>建立測試環境，讓企業實際操作與評估。</p>
-        </div>
-        <div class="step">
-            <span>03</span>
-            <h3>試用回饋</h3>
-            <p>收集使用者回饋，確認是否符合內部流程。</p>
-        </div>
-        <div class="step">
-            <span>04</span>
-            <h3>正式導入</h3>
-            <p>試用滿意後，再討論正式導入與後續規劃。</p>
-        </div>
+<!-- WHO -->
+<section class="section who-section">
+  <div class="container">
+    <div class="text-center">
+      <div class="sec-eyebrow">適合對象</div>
+      <h2 class="sec-title">EasyBiz 特別適合這些企業</h2>
+      <p class="sec-sub">想改善內部管理效率，但又不想一次導入大型 ERP 的務實型中小企業。</p>
     </div>
+    <div class="who-grid">
+      <div class="who-card">
+        <div class="who-emoji">🏭</div>
+        <h3>製造業 / 工廠</h3>
+        <p>有部門預算管理、採購簽核、員工申請等多種內部流程需要系統化管理。</p>
+      </div>
+      <div class="who-card">
+        <div class="who-emoji">📈</div>
+        <h3>50 至 300 人規模企業</h3>
+        <p>已成長到 Excel 管不住、ERP 又太貴的尷尬階段，正需要一個剛剛好的解法。</p>
+      </div>
+      <div class="who-card">
+        <div class="who-emoji">🗂️</div>
+        <h3>行政 / 財務 / 資訊主管</h3>
+        <p>希望建立清楚的資料來源、完整的權限控管，讓每份報表都有依據可追溯。</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="section">
-    <div class="section-title">
-        <h2>適合哪些企業？</h2>
-        <p>特別適合想改善內部管理，但又不想一次導入大型 ERP 的中小企業。</p>
-    </div>
+<div class="divider"></div>
 
-    <div class="grid-3">
-        <div class="card">
-            <h3>製造業 / 工廠</h3>
-            <p>需要管理預算、簽核、部門申請與內部流程。</p>
-        </div>
-        <div class="card">
-            <h3>50～300 人企業</h3>
-            <p>人數已經成長，但內部流程仍大量依賴人工與 Excel。</p>
-        </div>
-        <div class="card">
-            <h3>行政 / 財務 / 資訊單位</h3>
-            <p>需要建立清楚資料來源、權限控管與主管報表。</p>
-        </div>
+<!-- FAQ -->
+<section class="section faq-section" id="faq">
+  <div class="container">
+    <div class="text-center">
+      <div class="sec-eyebrow">常見問題</div>
+      <h2 class="sec-title">您可能想知道的事</h2>
     </div>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-q">試用需要付費嗎？</div>
+        <div class="faq-a">三個月試用評估期間的相關費用，請與我們直接洽談確認，正式導入前會完整說明授權與建置內容，不會有隱藏費用。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">是否包含原始碼？</div>
+        <div class="faq-a">正式導入以系統使用授權為主，不包含原始碼。若有特殊需求，可另行討論。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">可以依照我們公司流程客製嗎？</div>
+        <div class="faq-a">可以。試用後如需客製，我們會確認需求範圍後再報價，不會讓您買了才發現要另外加錢。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">目前有哪些系統可以使用？</div>
+        <div class="faq-a">目前主力提供「預算編列系統」與「電子表單系統」，其他功能模組正在持續開發中，後續逐步增加。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">資料安全有保障嗎？</div>
+        <div class="faq-a">資料儲存與權限設計均以企業資安需求為前提，具體部署方式（雲端或地端）可依企業需求討論。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">試用之後如果不適合怎麼辦？</div>
+        <div class="faq-a">試用結束後不滿意可直接說，不會有任何後續追費。我們寧可您試完再決定，也不要您因壓力而簽了不適合的合約。</div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="section">
-    <div class="section-title">
-        <h2>常見問題</h2>
+<div class="divider" style="background: linear-gradient(90deg, transparent, rgba(30,64,175,.3), transparent);"></div>
+
+<!-- CONTACT -->
+<section class="section contact-section" id="contact">
+  <div class="container">
+    <div class="text-center">
+      <div class="sec-eyebrow" style="color:var(--gold-lt)">申請試用</div>
+      <h2 class="sec-title">填寫資料，我們親自回覆您</h2>
+      <p class="sec-sub" style="color:#8aa8c0">不是自動回覆，不是客服系統，是真正了解您需求的人來聯絡您。</p>
     </div>
-
-    <div class="grid-2">
-        <div class="card">
-            <h3>試用需要付費嗎？</h3>
-            <p>可先申請三個月試用評估，正式導入前會再討論授權與建置內容。</p>
+    <form class="contact-wrap" action="https://formspree.io/f/xvzlkdql" method="POST">
+      <div class="form-row">
+        <div class="field">
+          <label>公司名稱</label>
+          <input type="text" name="company" placeholder="您的公司名稱" required>
         </div>
-        <div class="card">
-            <h3>是否包含原始碼？</h3>
-            <p>正式導入以系統使用授權為主，不包含原始碼。</p>
+        <div class="field">
+          <label>聯絡人姓名</label>
+          <input type="text" name="name" placeholder="您的姓名" required>
         </div>
-        <div class="card">
-            <h3>可以客製流程嗎？</h3>
-            <p>可以依企業需求討論，但正式客製內容會另行確認範圍。</p>
-        </div>
-        <div class="card">
-            <h3>目前提供哪些系統？</h3>
-            <p>目前優先提供預算編列系統與電子表單系統，其他系統後續再逐步增加。</p>
-        </div>
-    </div>
-</section>
-
-<section class="section" id="contact">
-    <div class="section-title">
-        <h2>申請三個月試用</h2>
-        <p>請留下聯絡資料與需求，我會親自回覆您。</p>
-    </div>
-
-    <form action="https://formspree.io/f/xvzlkdql" method="POST">
-        <label>公司名稱</label>
-        <input type="text" name="company" required>
-
-        <label>聯絡人姓名</label>
-        <input type="text" name="name" required>
-
+      </div>
+      <div class="field">
         <label>聯絡 Email</label>
-        <input type="email" name="email" required>
-
-        <label>想試用的系統</label>
+        <input type="email" name="email" placeholder="name@company.com" required>
+      </div>
+      <div class="field">
+        <label>想了解的系統</label>
         <select name="system">
-            <option>預算編列系統</option>
-            <option>電子表單系統</option>
-            <option>兩個系統都想了解</option>
+          <option>預算編列系統</option>
+          <option>電子表單系統</option>
+          <option>兩個系統都想了解</option>
         </select>
-
-        <label>目前主要使用方式</label>
+      </div>
+      <div class="field">
+        <label>目前主要管理方式</label>
         <select name="current_method">
-            <option>Excel 管理</option>
-            <option>紙本流程</option>
-            <option>Email / LINE / 表單混用</option>
-            <option>已有系統但不好用</option>
+          <option>Excel 管理為主</option>
+          <option>紙本流程為主</option>
+          <option>Email / LINE / 表單混用</option>
+          <option>已有系統但不夠好用</option>
         </select>
-
-        <label>需求內容</label>
-        <textarea name="message" rows="5" required></textarea>
-
-        <button type="submit" class="btn">送出試用申請</button>
+      </div>
+      <div class="field">
+        <label>需求說明</label>
+        <textarea name="message" placeholder="簡單描述您目前的管理痛點、公司規模，或想改善的流程……" required></textarea>
+      </div>
+      <button type="submit" class="btn" style="width:100%;text-align:center;">送出試用申請 →</button>
+      <p class="form-note">送出後我們將在 1～2 個工作天內與您聯繫</p>
     </form>
+  </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-    © EasyBiz 易企管理系統｜預算編列系統｜電子表單系統
+  <div class="footer-logo">EasyBiz 易企管理系統</div>
+  <div class="footer-copy">© EasyBiz｜預算編列系統｜電子表單系統｜為中小企業而生</div>
 </footer>
 
 </body>
